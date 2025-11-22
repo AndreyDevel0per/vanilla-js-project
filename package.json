@@ -6,10 +6,21 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
+    "lint": "stylelint ./src/**/*.scss && eslint ./src",
+    "format": "npx prettier --write ./src",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
     "sass": "^1.94.2",
+    "stylelint": "^16.26.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard-scss": "^16.0.0",
     "vite": "^7.2.4"
   }
 }

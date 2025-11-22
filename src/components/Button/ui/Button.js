@@ -1,11 +1,7 @@
-export const Button = ({
-  buttonText = "Default button"
-} = {}) => {
-  return (
-    `
+export const Button = ({ buttonText = "Default button" } = {}) => {
+  return `
       <button class="button">
         ${buttonText}
       </button>
-    `
-  )
-}
+    `;
+};

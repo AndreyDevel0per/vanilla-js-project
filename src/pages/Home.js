@@ -1,8 +1,7 @@
-import { Button } from "../components/Button"
+import { Button } from "../components/Button";
 
 export const Home = () => {
-  return (
-    `
+  return `
       <div>
         <div>
           Home Page
@@ -11,6 +10,5 @@ export const Home = () => {
           ${Button()}
         </div>
       </div>
-    `
-  )
-}
+    `;
+};
