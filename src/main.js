@@ -1,8 +1,4 @@
-import './style.css'
-import { Button } from './components/Button/ui/Button.js'
+import './styles/styles.js'
+import { Home } from './pages/Home'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    ${Button()}
-  </div>
-`
+document.querySelector('#app').innerHTML = Home()

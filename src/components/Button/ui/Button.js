@@ -1,5 +1,5 @@
 export const Button = ({
-  buttonText = "Click"
+  buttonText = "Default button"
 } = {}) => {
   return (
     `
