@@ -17,6 +17,7 @@ export default defineConfig([
       ...prettierPlugin.configs.recommended.rules,
       "no-console": "warn",
       eqeqeq: "warn",
+      "prettier/prettier": ["error", { endOfLine: "auto" }],
     },
   },
 ]);
