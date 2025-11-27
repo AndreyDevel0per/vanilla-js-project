@@ -1,6 +1,14 @@
-export const Button = ({ buttonText = "Default button" } = {}) => {
+import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
+
+export const Button = ({
+  baseClass = "button",
+  buttonText = "Default button",
+  // extraClasses = [],
+  extraAttrs = [],
+  utilClasses = [],
+} = {}) => {
   return `
-      <button class="button">
+      <button class="${baseClass} ${utilClasses.join(" ")}" ${getGeneratedAttrs(extraAttrs)}>
         ${buttonText}
       </button>
     `;
