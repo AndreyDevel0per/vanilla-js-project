@@ -1,4 +1,12 @@
 import "./styles/index.js";
-import { Home } from "./pages/Home";
+import { Router } from "./lib/services/router.js";
+import { Home } from "./pages/Home.js";
+import { Products } from "./pages/Products.js";
+import { routes } from "./config/constants.js";
+import { NotFound } from "./pages/notFound.js";
 
-document.querySelector("#app").innerHTML = Home();
+new Router({
+  [routes.home]: Home,
+  [routes.products]: Products,
+  [routes.notFound]: NotFound,
+});

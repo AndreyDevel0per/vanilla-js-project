@@ -1,15 +1,15 @@
 import { Button } from "../components/Button";
 
-export const Home = () => {
+export const Products = () => {
   return `
       <div>
         <div>
-          Home Page
+          Products Page
         </div>
         <div>
           ${Button()}
         </div>
-        <a href="/products">Lnk</a>
+        <a href="/">Lnk</a>
       </div>
     `;
 };
