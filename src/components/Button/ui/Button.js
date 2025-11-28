@@ -1,14 +1,15 @@
+import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
 
 export const Button = ({
   baseClass = "button",
-  buttonText = "Default button",
-  // extraClasses = [],
-  extraAttrs = [],
+  extraClasses = [],
   utilClasses = [],
+  extraAttrs = [],
+  buttonText = "Default button",
 } = {}) => {
   return `
-      <button class="${baseClass} ${utilClasses.join(" ")}" ${getGeneratedAttrs(extraAttrs)}>
+      <button class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         ${buttonText}
       </button>
     `;
