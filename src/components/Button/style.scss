@@ -1,3 +1,28 @@
 .button {
-  color: red;
+  color: var(--colorWhite);
+  background-color: var(--colorBlack);
+  padding-inline: 8rem;
+  padding-block: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &__label {
+    font-weight: 500;
+    line-height: 3rem;
+    font-size: 1.75rem;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &--isLight {
+    color: var(--colorBlack);
+    background-color: var(--colorWhite);
+    border: var(--colorBlack) 1.5px solid;
+  }
 }
