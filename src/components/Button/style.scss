@@ -25,4 +25,46 @@
     background-color: var(--colorWhite);
     border: var(--colorBlack) 1.5px solid;
   }
+
+  &--isNavElem {
+    height: 2.5rem;
+    padding: 0;
+    background-color: var(--colorWhite);
+    color: var(--colorBlack);
+
+    .button__label {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      opacity: 0.6;
+      transition-duration: 0.2s;
+    }
+  }
+
+  &--isHeaderIcon {
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    background-color: var(--colorWhite);
+    
+
+    &:hover {
+      background-color: var(--colorCadeyGray);
+      border-radius: 8px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  
+    &.button {
+      gap: 0;
+    }
+  }
+
+  &--isBackBlack {
+    background-color: var(--colorGrayDark);
+    border: var(--colorWhite) 1.5px solid;
+  }
 }

@@ -1,0 +1,43 @@
+.bigCard {
+
+    height: 80rem;  
+    width: 45rem;
+
+    &__imgWrapper {
+        display: inline-flex;
+    }
+    
+    &__descriptionWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-inline: auto;
+        align-items: start;
+        width: 37rem;
+        gap: 2rem;
+    }
+
+    &__title {
+        font-size: 4.1rem;
+        line-height: 6rem;
+
+        &--white{ 
+            color: var(--colorWhite);
+        }
+    }
+
+    &__description {
+        font-size: 1.75rem;
+        color: var(--colorAnthracite);
+    }
+
+    &--isGhostWhite {
+        background-color: var(--colorGhostWhite);
+    }
+
+    &--isGrayLight {
+        background-color: var(--colorGrayLight --colorGrayDark);
+    }
+    &--isGrayDark {
+        background-color: var(--colorGrayDark);
+    }
+}
