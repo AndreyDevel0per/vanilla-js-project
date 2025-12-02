@@ -1,0 +1,41 @@
+.card {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 54rem;
+    width: 33.5rem;
+    gap: 2rem;
+    padding: 3rem 2rem;
+
+    &__imgWrapper {
+        text-align: center;
+    }
+    
+    &__favoriteField {
+        margin-left: auto;
+    }
+
+    &__descriptionContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        & > *:last-child {
+            margin-top: 1rem;
+        }
+    }
+
+    &__description{
+        font-size: 2rem;
+        line-height: 3rem;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    &__price {
+        font-size: 3rem;
+        line-height: 3rem;
+        font-weight: 600;
+    }
+}

@@ -10,7 +10,7 @@ import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
  * @param {String} text Текст кнопки
  * @param {String} type Тип кнопки (button/link)
  * @param {String} href Ссылка для типа link
- * @param {Function} icon Иконка
+ * @param {Function} icon Изображение
  * @return {String} HTML разметка кнопки
  */
 export const Button = ({
