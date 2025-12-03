@@ -1,0 +1,53 @@
+.saleBanner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 56rem;
+
+    &__imgWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20rem;
+        gap: 5rem;
+    }
+
+    &__contentWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__title {
+        font-size: 9rem;
+        line-height: 9rem;
+        font-weight: 100;
+        color: var(--colorWhite);
+
+        &--medium {
+            font-weight: 500;
+        }
+    }
+
+    &__description {
+        text-align: center;
+        font-size: 2rem;
+        line-height: 4rem;
+        color: var(--colorGrayMedium);
+    }
+}
