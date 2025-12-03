@@ -1,6 +1,17 @@
 @font-face {
   font-family: inter;
   src:
+    local("Inter-Thin"),
+    local("Inter Thin"),
+    url("/fonts/Inter18pt-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: inter;
+  src:
     local("Inter-Regular"),
     local("Inter Regular"),
     url("/fonts/Inter18pt-Regular.woff2") format("woff2");
