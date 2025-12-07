@@ -1,6 +1,7 @@
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { IconArrowDown } from "../components/Icons";
+import { Slider } from "../components/Slider";
 
 export const Home = () => {
   return `
@@ -14,6 +15,7 @@ export const Home = () => {
           ${Button({ text: "Shop Now", extraClasses: ["isLight"] })}
           ${Button({ text: "View More", extraClasses: ["isLight"], icon: IconArrowDown })}
         </div>
+        ${Slider()}
         <a href="/products">Link</a>
       </div>
     `;

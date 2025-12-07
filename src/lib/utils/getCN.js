@@ -16,13 +16,17 @@ export const getCN = (
 
   if (element) cssClass += `__${element}`;
 
-  extraClasses.forEach((extraClass) => {
-    cssClass += ` ${baseClass}${element ? "__" : ""}${element}--${extraClass}`;
-  });
+  if (Array.isArray(extraClasses)) {
+    extraClasses.forEach((extraClass) => {
+      cssClass += ` ${baseClass}${element ? "__" : ""}${element}--${extraClass}`;
+    });
+  }
 
-  utilClasses.forEach((utilClass) => {
-    cssClass += ` ${utilClass}`;
-  });
+  if (Array.isArray(utilClasses)) {
+    utilClasses.forEach((utilClass) => {
+      cssClass += ` ${utilClass}`;
+    });
+  }
 
   return cssClass;
 };
