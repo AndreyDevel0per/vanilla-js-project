@@ -1,0 +1,12 @@
+.searchInput {
+    position: relative;
+    background-color: var(--colorCultured);
+    border-radius: 1rem;
+
+    &__svg {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        
+    }
+}
