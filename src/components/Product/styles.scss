@@ -5,65 +5,30 @@
     width: 25vw;
     height: 34rem;
 
-    &.grayLight {
+    &__imgWrapper {
+
+        &--large {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    &--grayLight {
         background-color: var(--colorGrayLight);
     }
 
-    &.grayDark{
+    &--grayDark{
         background-color: var(--colorGrayDark);
-
-        & .product__title {
-            color: var(--colorWhite);
-        }
     }
 
-    &.medium {
+    &--medium {
         height: 41rem;
         width: 50vw;
-
-        &> .product__content {
-            width: 42rem;
-            gap: 2rem;
-            margin-left: -3.5rem;
-
-                    
-            &> .product__title {
-                font-size: 6.125rem;
-                font-weight: 500;
-            }
-        }
-
     }
 
-    &.large {
+    &--large {
         width: 50vw;
         height: 75rem;
-        
-        &> .product__imgWrapper {
-            position: absolute;
-            right: 0;
-        }
-
-        &> .product__content {
-            position: absolute;
-            transform: translateX(calc(-80% - 2rem));
-            right: 0;
-            margin-left: 0;
-            width: 44.5rem;
-            gap: 2rem;
-
-            
-            & .product__title {
-                font-size: 8rem;
-                line-height: 7rem;
-                font-weight: 100;
-
-                &--medium {
-                    font-weight: 500;
-                }
-            }
-        }
-
     }
 
     &__content {
@@ -73,6 +38,21 @@
         width: 20rem;
         gap: 1rem;
         margin-left: 6rem;
+
+        &--medium {
+            width: 42rem;
+            gap: 2rem;
+            margin-left: -3.5rem;
+        }
+
+        &--large {
+            position: absolute;
+            transform: translateX(calc(-80% - 2rem));
+            right: 0;
+            margin-left: 0;
+            width: 44.5rem;
+            gap: 2rem;
+        }
     }
     
     &__title {
@@ -80,12 +60,28 @@
         line-height: 5rem;
         font-weight: 300;
 
-        &--medium {
+        &--med {
+            font-size: inherit;
             font-weight: 500;
         }
 
         &--black {
             color: var(--colorWhite);
+        }
+
+        &--grayDark {
+            color: var(--colorWhite);
+        }
+
+        &--medium {
+            font-size: 6.125rem;
+            font-weight: 500;
+        }
+
+        &--large {
+            font-size: 8rem;
+            line-height: 7rem;
+            font-weight: 100;
         }
     }
 

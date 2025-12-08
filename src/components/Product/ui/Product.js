@@ -28,19 +28,18 @@ export const Product = ({
   type = "small",
   backColor = "white",
 } = {}) => {
-  type === "large" ? utilClasses = ["large"] : type === "medium" ? utilClasses = ["medium"] : utilClasses = ["small"]
-  backColor === "white" ? backColor = "" : backColor === "grayLight" ? utilClasses = [utilClasses + " grayLight"] : utilClasses = [utilClasses + " grayDark"]
+  extraClasses = [...extraClasses, backColor, type]
   return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-        <div class="${getCN(baseClass, "imgWrapper")}">
+        <div class="${getCN(baseClass, "imgWrapper", extraClasses)}">
             <img src="../../../assets/images/${productImg}.png" alt="/" class="${getCN(baseClass, "image")}"></img>
         </div>
-        <div class="${getCN(baseClass, "content")}">
-            <h1 class="${backColor === "grayMuted" ? getCN(baseClass, "title", ["black"]) : getCN(baseClass, "title")}">
-                ${title} ${titleMedium ? `<span class="${getCN(baseClass, "title", ["medium"])}">${titleMedium}</span>` : ''}
-            </h1>
+        <div class="${getCN(baseClass, "content", extraClasses)}">
+            <h2 class="${getCN(baseClass, "title", extraClasses)}">
+                ${title} ${titleMedium ? `<span class="${getCN(baseClass, "title", ["med"])}">${titleMedium}</span>` : ""}
+            </h2>
             <span class="${getCN(baseClass, "description")}">${description}</span>
-            ${type === "large" ? Button({ text: "Shop Now", extraClasses: ["isLight"] }) : ""} 
+            ${type === "large" ? Button({ text: "Shop Now", extraClasses: ["isLight"]}) : ""} 
         </div>
     </div>
   `;

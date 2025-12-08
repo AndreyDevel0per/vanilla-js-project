@@ -9,8 +9,8 @@ export const Home = () => {
         ${Header()}
         <div>
           ${Product({ productImg: "AirPods", title: "Apple AirPods", titleMedium: "Max", description: "Computational audio. Listen, it's powerful", backColor: "grayLight" })}
-          ${Product({ productImg: "VisionPro", title: "Apple Vision", titleMedium: "Pro", description: "An immersive way to experience entertainment", backColor: "grayDark" })}
-          ${Product({ productImg: "PS5", title: "Playstation 5", description: "Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.", type: "medium", backColor: "white" })}
+          ${Product({ productImg: "VisionPro", title: "Apple Vision", titleMedium: "Pro", description: "An immersive way to experience entertainment", backColor: ["grayDark"] })}
+          ${Product({ productImg: "PS5", titleMedium: "Playstation 5", description: "Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.", type: "medium", backColor: "white" })}
           ${Product({ productImg: "MacPro14", title: "Macbook", titleMedium: "Air", description: "The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.", type: "large", backColor: "grayLight" })}
         </div>
         <div style="display: flex; gap: 1rem;">
