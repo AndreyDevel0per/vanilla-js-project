@@ -3,7 +3,7 @@ import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
 import { Button } from "../../Button";
 import { IconHeaderFavorite } from "../../Icons";
 /**
- * Компонент кнопки
+ * Компонент карты товара
  * @param {String} baseClass Базовый класс
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
@@ -21,14 +21,14 @@ export const Card= ({
   imageName = "",
   description = "",
   price = 0,
-}) => {
+} = {}) => {
     return`
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "favoriteField")}">
-            ${Button({ type: "link", text: "", extraClasses: ["isHeaderIcon"], icon: IconHeaderFavorite })}
+            ${Button({ type: "link", text: "", extraClasses: ["isIcon"], icon: IconHeaderFavorite })}
         </div>
         <div class="${getCN(baseClass, "imgWrapper")}">
-            <img width="160" height="160" src="../../../../assets/images/${imageName}.jpg" class="${getCN(baseClass, "image")}">
+            <img src="../../../../assets/images/${imageName}.jpg" class="${getCN(baseClass, "image")}">
         </div>
         <div class="${getCN(baseClass, "descriptionContainer")}">
             <span class="${getCN(baseClass, "description")}">${description}</span>

@@ -1,11 +1,11 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
-import { IconHeaderFavorite, IconHeaderProfile, IconHeaderCart, IconLogo } from "../../Icons";
-import { Input } from "../../Input";
+import { IconHeaderFavorite, IconHeaderProfile, IconHeaderCart, IconLogo, IconLoop } from "../../Icons";
 import { Button } from "../../Button";
+import { SearchInput } from "../../SearchInput";
 
 /**
- * Компонент заголовка
+ * Компонент Header
  * @param {String} baseClass Базовый класс
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
@@ -20,30 +20,39 @@ export const Header = ({
 } = {}) => {
   return `
     <header class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-      <span>
+      <div class="${getCN(baseClass, "logo")}">
         ${IconLogo()}
-      </span>
-      ${Input({ placeholder: "Search"})}
+      </div>
+      <div class="${getCN(baseClass, "search")}">
+        ${SearchInput({ icon: IconLoop })}
+      </div>
         <nav class="${getCN(baseClass, "menu")}">
           <ul class="${getCN(baseClass, "list")}">
             <li class="${getCN(baseClass, "item")}">
-              ${Button({ type: "link", text: "Home", extraClasses: ["isNavElem"] })}
+              ${Button({ type: "link", href: "/", text: "Home", extraClasses: ["isLink"] })}
             </li>
             <li class="${getCN(baseClass, "item")}">
-              ${Button({ type: "link", text: "About", extraClasses: ["isNavElem"] })}
+              ${Button({ type: "link", href: "/", text: "About", extraClasses: ["isLink"] })}
             </li>
             <li class="${getCN(baseClass, "item")}">
-              ${Button({ type: "link", text: " Contact Us", extraClasses: ["isNavElem"] })}
+              ${Button({ type: "link", href: "/", text: " Contact Us", extraClasses: ["isLink"] })}
             </li>
             <li class="${getCN(baseClass, "item")}">
-              ${Button({ type: "link", text: "Blog", extraClasses: ["isNavElem"] })}
+              ${Button({ type: "link", href: "/", text: "Blog", extraClasses: ["isLink"] })}
             </li>
           </ul>
         </nav>
         <div class="${getCN(baseClass, "actions")}">
-          ${Button({ type: "link", text: "", extraClasses: ["isHeaderIcon"], icon: IconHeaderFavorite })}
-          ${Button({ type: "link", text: "", extraClasses: ["isHeaderIcon"], icon: IconHeaderCart })}
-          ${Button({ type: "link", text: "", extraClasses: ["isHeaderIcon"], icon: IconHeaderProfile })}
+          ${Button({ type: "link", href: "/", text: "", extraClasses: ["isIcon"], icon: IconHeaderFavorite })}
+          ${Button({ type: "link", href: "/", text: "", extraClasses: ["isIcon"], icon: IconHeaderCart })}
+          ${Button({ type: "link", href: "/", text: "", extraClasses: ["isIcon"], icon: IconHeaderProfile })}
+        </div>
+        <div class="${getCN(baseClass, "burgerMenu")}">
+          <button class="${getCN(baseClass, "burgerButton")}">
+            <span class="${getCN(baseClass, "burgerLine")}"></span>
+            <span class="${getCN(baseClass, "burgerLine")}"></span>
+            <span class="${getCN(baseClass, "burgerLine")}"></span>
+          </button>
         </div>
     </header>
   `;

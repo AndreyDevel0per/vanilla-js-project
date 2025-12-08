@@ -8,7 +8,15 @@
     padding: 3rem 2rem;
 
     &__imgWrapper {
-        text-align: center;
+        width: 20rem;
+        height: 20rem;
+        margin: 0 auto;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     
     &__favoriteField {
@@ -20,10 +28,10 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+    }
 
-        & > *:last-child {
-            margin-top: 1rem;
-        }
+    &__price {
+        margin-bottom: 1rem;
     }
 
     &__description{

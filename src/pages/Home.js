@@ -4,6 +4,7 @@ import { Card } from "../components/Card";
 import { CategoryCard } from "../components/CategoryCard";
 import { Header } from "../components/Header";
 import { IconArrowDown, IconCameras, IconComputers, IconGaming, IconHeadphones, IconPhones, IconSmartWatches } from "../components/Icons";
+import { Input } from "../components/Input";
 
 export const Home = () => {
   return `
@@ -13,6 +14,8 @@ export const Home = () => {
           Home Page
         </div>
         <div style="display: flex; gap: 1rem;">
+          ${Input({ placeholder: "Enter Card Number", extraClasses:["withButton"] })}
+          ${Input({ placeholder: "Code" })}
           ${Button({ text: "Buy Now" })}
           ${Button({ text: "Shop Now", extraClasses: ["isLight"] })}
           ${Button({ text: "View More", extraClasses: ["isLight"], icon: IconArrowDown })}
@@ -37,8 +40,11 @@ export const Home = () => {
         ${CategoryCard({ categoryName: "Computers", icon: IconComputers })}
         ${CategoryCard({ categoryName: "Gaming", icon: IconGaming})}
       </div>
-      <div>
-        ${BigCard({ extraClasses: ["isGrayDark"], imageName: "Popular", height: 330, title: "Popular Products", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."})}
+      <div style="display: flex; justify-content: center">
+        ${BigCard({ imagePath: "../../../../assets/images/Popular.png", title: "Popular Products", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."})}
+        ${BigCard({ extraClasses: ["isGhostWhite"], imagePath: "../../../../assets/images/IpadPro.png", title: "Ipad Pro", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."})}
+        ${BigCard({ extraClasses: ["isGrayLight"], imagePath: "../../../../assets/images/SamsungGalaxy.png", title: "Samsung Galaxy", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."})}
+        ${BigCard({ extraClasses: ["isGrayDark"], imagePath: "../../../../assets/images/MacbookPro.png", title: "Macbook Pro", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."})}
       </div>
     `;
 };

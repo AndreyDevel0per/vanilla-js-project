@@ -1,8 +1,9 @@
 .categoryCard {
     width: 20rem;
     height: 16rem;
-    padding: 3rem 6.5rem;
+    padding: 3rem 2rem;
     background-color: var(--colorGrayLight);
+    border-radius: 2rem;
 
     &__productWrapper {
     display: flex;
@@ -11,10 +12,11 @@
     }
 
     &__name {
-        width: auto;
+        width: 100%;
         height: 3rem;
         font-size: 2rem;
         font-weight: 500;
-        white-space: nowrap;
+        text-align: center;
+        overflow: hidden;
     }
 }

@@ -9,5 +9,6 @@ import { IconCameras } from "./ui/IconCameras"
 import { IconHeadphones } from "./ui/IconHeadphones"
 import { IconComputers } from "./ui/IconComputers"
 import { IconGaming } from "./ui/IconGaming"
+import { IconLoop } from "./ui/IconLoop"
 
-export { IconArrowDown, IconLogo, IconHeaderFavorite, IconHeaderCart, IconHeaderProfile, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming };
+export { IconArrowDown, IconLogo, IconHeaderFavorite, IconHeaderCart, IconHeaderProfile, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming, IconLoop };

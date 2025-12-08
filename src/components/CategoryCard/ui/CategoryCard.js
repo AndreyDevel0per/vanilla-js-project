@@ -1,8 +1,8 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
-import { IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming } from "../../Icons";
+
 /**
- * Компонент кнопки
+ * Компонент карты-категории
  * @param {String} baseClass Базовый класс
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
@@ -18,7 +18,7 @@ export const CategoryCard= ({
   extraAttrs = [],
   icon = "",
   categoryName = "",
-}) => {
+} = {}) => {
     return`
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "productWrapper")}">

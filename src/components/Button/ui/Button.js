@@ -32,7 +32,7 @@ export const Button = ({
     `
     : `
       <button class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-        <span class="${getCN(baseClass, "label")}">${text}</span>
+        <span class="${getCN(baseClass, "label", utilClasses)}">${text}</span>
         ${icon && `<span class="${getCN(baseClass, "icon")}">${icon()}</span>`}
       </button>
     `;

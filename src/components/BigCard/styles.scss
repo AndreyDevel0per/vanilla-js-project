@@ -5,6 +5,14 @@
 
     &__imgWrapper {
         display: inline-flex;
+        justify-content: center;
+        width: 45rem;
+        height: 47rem;
+    }
+
+    &__image {
+        width: auto;
+        height: 100%;
     }
     
     &__descriptionWrapper {
@@ -20,7 +28,7 @@
         font-size: 4.1rem;
         line-height: 6rem;
 
-        &--white{ 
+        &--isGrayDark{ 
             color: var(--colorWhite);
         }
     }
@@ -35,7 +43,7 @@
     }
 
     &--isGrayLight {
-        background-color: var(--colorGrayLight --colorGrayDark);
+        background-color: var(--colorGrayLight);
     }
     &--isGrayDark {
         background-color: var(--colorGrayDark);
