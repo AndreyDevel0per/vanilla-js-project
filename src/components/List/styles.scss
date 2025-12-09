@@ -1,0 +1,36 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 37.5rem;
+    background-color: inherit;
+
+    &__item {
+        font-size: 1.75rem;
+        line-height: 2.25;
+        color: var(--colorAmericanSilver);
+
+        &:first-child {
+            font-size: 2rem;
+            line-height: 1;
+            font-weight: 600;
+            color: var(--colorWhite);
+        }
+    }
+
+    &__link {
+        color: inherit;
+    }
+    
+    @media (max-width: 1100px) {
+        width: 25rem;
+    }
+
+    @media (max-width: 767px) {
+        align-items: center;
+        
+        &__item:last-child {
+            margin-bottom: 3rem;
+        }
+    }
+}
