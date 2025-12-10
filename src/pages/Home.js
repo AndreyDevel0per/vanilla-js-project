@@ -1,3 +1,4 @@
+import { Banner } from "../components/Banner/ui/Banner";
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { IconArrowDown } from "../components/Icons";
@@ -5,7 +6,7 @@ import { IconArrowDown } from "../components/Icons";
 export const Home = () => {
   return `
       <div>
-        ${Header()}
+        ${Banner()}
         <div>
           Home Page
         </div>

@@ -25,4 +25,10 @@
     background-color: var(--colorWhite);
     border: var(--colorBlack) 1.5px solid;
   }
+
+  &--isGrayDark {
+    color: var(--colorWhite);
+    background-color: var(--colorGrayDark);
+    border: var(--colorWhite) 1.5px solid;
+  }
 }

@@ -1,0 +1,87 @@
+.banner {
+    background-color: var(--colorPurpleDeep);
+
+    &__container {
+        max-width: 140rem;
+        padding-inline: 2rem ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 89rem;
+        color: var(--colorWhite);
+    }
+
+    &__uptitle {
+        opacity: 0.4;
+        font-size: 3.125rem;
+        line-height: 1.3;
+        font-weight: 600;
+    }
+
+    &__title {
+        font-size: 12rem;
+        line-height: 0.75;
+        font-weight: 100;
+        letter-spacing: -0.12rem;
+
+        &--semiBold {
+            font-weight: 600;
+        }
+    }
+
+    &__description {
+        font-size: 2.25rem;
+        font-weight: 500;
+        color: var(--colorAnthracite);
+    }
+
+    &__imgWrapper {
+        min-width: 50.75rem;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 1280px) {
+        
+        &__container {
+            flex-direction: column;
+            padding-top: 11rem;
+        }
+
+        &__text {
+            align-items: center;
+            width: 43rem;
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        &__title {
+            font-size: 9rem;
+            line-height: 1;
+            text-align: center;
+        }
+
+        &__description {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        &__imgWrapper {
+            min-width: 0;
+            width: 42.875rem;
+            max-height: 36.125rem;
+        }
+    }
+}
