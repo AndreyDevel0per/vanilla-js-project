@@ -1,0 +1,21 @@
+.slider {
+  &__container {
+    border: 1px solid black;
+    max-width: 80%;
+    margin: 5rem auto;
+    overflow: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    transition: all ease 1s;
+  }
+
+  &__item {
+    height: 300px;
+    width: 100%;
+    background-color: chartreuse;
+    border: red solid 1.5px;
+    border-radius: 1rem;
+  }
+}
