@@ -1,22 +1,10 @@
-import { Button } from "../components/Button";
-import { Header } from "../components/Header";
-import { IconArrowDown } from "../components/Icons";
-import { Slider } from "../components/Slider";
-
 export const Home = () => {
   return `
       <div>
-        ${Header()}
         <div>
           Home Page
         </div>
-        <div style="display: flex; gap: 1rem;">
-          ${Button({ text: "Buy Now" })}
-          ${Button({ text: "Shop Now", extraClasses: ["isLight"] })}
-          ${Button({ text: "View More", extraClasses: ["isLight"], icon: IconArrowDown })}
-        </div>
-        ${Slider()}
-        <a href="/products">Link</a>
+        <a href="/components">Link</a>
       </div>
     `;
 };
