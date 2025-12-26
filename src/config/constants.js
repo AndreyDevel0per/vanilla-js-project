@@ -5,4 +5,5 @@ export const routes = {
   cart: "/cart",
   payment: "/payment",
   notFound: "/notFound",
+  components: "/components"
 };

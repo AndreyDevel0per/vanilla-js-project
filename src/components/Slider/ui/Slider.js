@@ -1,5 +1,7 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
+import { IconArrowLeft, IconArrowRight, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming } from "../../Icons";
+import { CategoryCard } from "../../../components/CategoryCard";
 
 /**
  * Компонент слайдера
@@ -15,30 +17,38 @@ export const Slider = ({
   utilClasses = [],
   extraAttrs = [],
 } = {}) => {
+    const categories = [
+    { name: "Phones", icon: IconPhones },
+    { name: "Smart Watches", icon: IconSmartWatches },
+    { name: "Cameras", icon: IconCameras },
+    { name: "Headphones", icon: IconHeadphones },
+    { name: "Computers", icon: IconComputers },
+    { name: "Gaming", icon: IconGaming },
+    
+    { name: "Phones", icon: IconPhones },
+    { name: "Smart Watches", icon: IconSmartWatches },
+    { name: "Cameras", icon: IconCameras },
+  ];
+
+  const cardsHTML = categories.map(category => 
+    `<li class="${getCN(baseClass, "item")}" data-js-slider-slide>
+      ${CategoryCard({ categoryName: category.name, icon: category.icon })}
+    </li>`
+  ).join('');
+
   return `
-    <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" data-js-slider ${getGeneratedAttrs(extraAttrs)}>
+    <div class="${getCN(baseClass, "", extraClasses, ["containerLarge"])}" data-js-slider ${getGeneratedAttrs(extraAttrs)}>
+      <div class="${getCN(baseClass, "navigation")}">
+        <span div class="${getCN(baseClass, "name")}">Browse By Category</span>
+        <div class="${getCN(baseClass, "buttons")}">
+          <button class="${getCN(baseClass, "navigationItem", ["prev"])}" data-js-navigation-prev>${IconArrowLeft()}</button>
+          <button class="${getCN(baseClass, "navigationItem", ["next"])}" data-js-navigation-next>${IconArrowRight()}</button>
+        </div>
+      </div>
       <div class="${getCN(baseClass, "container")}" data-js-slider-container>
         <ul class="${getCN(baseClass, "wrapper")}" data-js-slider-wrapper>
-          <li class="${getCN(baseClass, "slide")}" data-js-slider-slide>
-            <div class="${getCN(baseClass, "item")}">1</div>
-          </li>
-          <li class="${getCN(baseClass, "slide")}" data-js-slider-slide>
-            <div class="${getCN(baseClass, "item")}">2</div>
-          </li>
-          <li class="${getCN(baseClass, "slide")}" data-js-slider-slide>
-            <div class="${getCN(baseClass, "item")}">3</div>
-          </li>
-          <li class="${getCN(baseClass, "slide")}" data-js-slider-slide>
-            <div class="${getCN(baseClass, "item")}">4</div>
-          </li>
-          <li class="${getCN(baseClass, "slide")}" data-js-slider-slide>
-            <div class="${getCN(baseClass, "item")}">5</div>
-          </li>
+          ${cardsHTML}
         </ul>
-      </div>
-      <div class="${getCN(baseClass, "navigation")}">
-        <button class="${getCN(baseClass, "navigationItem", ["prev"])}" data-js-navigation-prev>Prev</button>
-        <button class="${getCN(baseClass, "navigationItem", ["next"])}" data-js-navigation-next>Next</button>
       </div>
     </div>
   `;

@@ -1,0 +1,30 @@
+.categoryCard {
+    width: 20rem;
+    height: 16rem;
+    padding: 3rem 2rem;
+    background-color: var(--colorGrayLight);
+    border-radius: 2rem;
+    user-select: none;
+    flex-shrink: 0;
+
+    &__productWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    &__name {
+        width: 100%;
+        height: 3rem;
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    &:hover {
+        background-color: var(--colorGray);
+        transition-duration: 0.2;
+        cursor: pointer;
+    }
+}

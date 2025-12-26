@@ -10,7 +10,7 @@ import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
  * @param {String} text Текст кнопки
  * @param {String} type Тип кнопки (button/link)
  * @param {String} href Ссылка для типа link
- * @param {Function} icon Иконка
+ * @param {Function} icon Изображение
  * @return {String} HTML разметка кнопки
  */
 export const Button = ({
@@ -32,7 +32,7 @@ export const Button = ({
     `
     : `
       <button class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-        <span class="${getCN(baseClass, "label")}">${text}</span>
+        <span class="${getCN(baseClass, "label", utilClasses)}">${text}</span>
         ${icon && `<span class="${getCN(baseClass, "icon")}">${icon()}</span>`}
       </button>
     `;

@@ -1,21 +1,57 @@
 .slider {
+  display: flex;  
+  flex-direction: column;
+  align-items: start;
+    
   &__container {
-    border: 1px solid black;
     max-width: 80%;
-    margin: 5rem auto;
+    margin: 4rem auto;
     overflow: hidden;
   }
 
   &__wrapper {
     display: flex;
-    transition: all ease 1s;
+    gap: 4rem;
+    transition: all ease 0.5s;
+    will-change: transform;
   }
 
   &__item {
-    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background-color: chartreuse;
-    border: red solid 1.5px;
-    border-radius: 1rem;
+    gap: 2rem;
+  }
+
+  &__name {
+    font-size: 3rem;
+    line-height: 1.33;
+    letter-spacing: 0.03rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__navigationItem {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+  }
+
+  @media (max-width: 767px) {
+
+    &__name {
+      font-size: 2rem;
+    }
   }
 }

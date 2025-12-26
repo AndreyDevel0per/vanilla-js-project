@@ -9,10 +9,20 @@
   justify-content: center;
   gap: 1rem;
 
+  &:hover {
+    opacity: 0.6;
+    transition-duration: 0.2s;
+  }
+
   &__label {
     font-weight: 500;
     line-height: 3rem;
     font-size: 1.75rem;
+
+    &--smallText {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
   }
 
   &__icon {
@@ -24,5 +34,72 @@
     color: var(--colorBlack);
     background-color: var(--colorWhite);
     border: var(--colorBlack) 1.5px solid;
+  }
+
+  &--isLink {
+    height: 2.5rem;
+    padding: 0;
+    background-color: var(--colorWhite);
+    color: var(--colorBlack);
+
+    .button__label {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      opacity: 0.6;
+      transition-duration: 0.2s;
+    }
+  }
+
+  &--isIcon {
+    padding: 0;
+    background-color: var(--colorWhite);
+    
+
+    &:hover {
+      background-color: var(--colorCadeyGray);
+      border-radius: 8px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  
+    &.button {
+      gap: 0;
+    }
+  }
+
+  &--isFavorite:hover {
+    background-color: var(--colorGray);
+    border-radius: 8px;
+    transition-duration: 0.2s;
+  }
+  
+
+  &--isGrayDark {
+    color: var(--colorWhite);
+    background-color: var(--colorGrayDark);
+    border: var(--colorWhite) 1.5px solid;
+  }
+
+  &--isGrayLight {
+    background-color: inherit;
+  }
+
+  &--isGhostWhite {
+    background-color: inherit;
+  }
+
+  &--isApply {
+    padding: 1rem 2.5rem;
+  }
+
+  @media (max-width: 1280px) {
+    
+    &--cardButton {
+      padding: 1.5rem 5rem;
+    }
   }
 }
