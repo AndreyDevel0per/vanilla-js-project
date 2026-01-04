@@ -1,17 +1,6 @@
 import { BigCard } from "../components/BigCard/ui/BigCard";
-import { Button } from "../components/Button";
 import { Card } from "../components/Card";
-import { CategoryCard } from "../components/CategoryCard";
 import { Header } from "../components/Header";
-import {
-  IconArrowDown,
-  IconPhones,
-  IconSmartWatches,
-  IconCameras,
-  IconHeadphones,
-  IconComputers,
-  IconGaming,
-} from "../components/Icons";
 import { Slider } from "../components/Slider";
 import { TabMenu } from "../components/TabMenu";
 
