@@ -1,0 +1,63 @@
+.tabmenu {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    
+    &__navigation {
+        display: flex;
+        gap: 4rem;
+    }
+
+    &__link {
+        height: 4rem;
+        font-size: 2.25rem;
+        line-height: 1.78;
+        color: var(--colorAnthracite);
+
+        &--isActive {
+            color: var(--colorBlack);
+            border-bottom: 2px solid var(--colorBlack);
+        }
+    }
+
+    &__tab {
+        display: none;
+
+        &--isActive {
+            display: block;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    &__item {
+        display: inline-flex;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 950px) { 
+        &__wrapper {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &__link {
+            font-size: 1.75rem;
+            height: 3rem;
+        }
+    }
+
+    @media (max-width: 750px) { 
+        &__wrapper {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        &__navigation {
+            gap: 1.5rem;
+        }
+    }
+}

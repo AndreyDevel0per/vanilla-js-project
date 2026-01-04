@@ -1,39 +1,35 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
 import { Button } from "../../Button";
-import { IconFavorite } from "../../Icons";
 /**
- * Компонент карты товара
+ * Компонент подробной карты
  * @param {String} baseClass Базовый класс
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
  * @param {Array<String>} extraAttrs Массив с дополнительными атрибутами
- * @param {String} imageName Наименование изображения
+ * @param {String} imagePath Путь до изображения
+ * @param {String} title Заголовок товара
  * @param {String} description Описания товара
- * @param {Number} price Цена товара в долларах
- * @return {String} HTML разметка карты товара
+ * @return {String} HTML разметка подробной карты товара
  */
-export const Card = ({
-  baseClass = "card",
+export const BigCard = ({
+  baseClass = "bigCard",
   extraClasses = [],
   utilClasses = [],
   extraAttrs = [],
-  imageName = "",
+  imagePath = "",
+  title = "",
   description = "",
-  price = 0,
-} = {}) => {
+}) => {
   return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-        <div class="${getCN(baseClass, "favoriteField")}">
-            ${Button({ type: "link", text: "", extraClasses: ["isIcon", "isFavorite"], icon: IconFavorite })}
-        </div>
         <div class="${getCN(baseClass, "imgWrapper")}">
-            <img src="../../../../assets/images/${imageName}.jpg" class="${getCN(baseClass, "image")}">
+            <img src="${imagePath}" class="${getCN(baseClass, "image")}">
         </div>
-        <div class="${getCN(baseClass, "descriptionContainer")}">
+        <div class="${getCN(baseClass, "descriptionWrapper")}">
+            <span class="${getCN(baseClass, "title", extraClasses)}">${title}</span>
             <span class="${getCN(baseClass, "description")}">${description}</span>
-            <span class="${getCN(baseClass, "price")}">$${price}</span>
-            ${Button({ text: "Buy Now", extraClasses: ["cardButton"] })}
+            ${Button({ text: "Shop Now", extraClasses: [...extraClasses, "isLight"] })}
         </div>
     </div>
     `;

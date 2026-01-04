@@ -24,54 +24,88 @@ export class SliderModel {
         SliderModel.selectors.buttonNext
       );
 
-      this.count = 0;
-      this.width;
+      this.currentPosition = 0;
+      this.containerWidth = 1120;
+      this.visibleSlides = 6;
+      this.gap = parseInt(window.getComputedStyle(this.wrapper).gap) || 0;
+      this.slideWidths = [];
 
       this.#init();
     }
   }
 
   #init() {
-    this.#calculateWidth();
-    this.rollSlider();
+    this.#calculateContainerWidth();
+    this.#calculateSlideWidth();
+    this.#updateWrapperWidth();
+    this.#applyTransform();
     this.#bindEvents();
   }
 
   #handleWindowResize() {
-    this.#calculateWidth();
-    this.rollSlider();
+    this.#calculateContainerWidth();
+    this.#calculateSlideWidth();
+    this.#updateWrapperWidth();
+    this.#applyTransform();
   }
 
-  #calculateWidth() {
-    this.width = this.container.offsetWidth;
-    this.wrapper.style.width = this.width * this.slides.length + "px";
+  #calculateContainerWidth() {
+    // this.containerWidth = this.container.offsetWidth;
+    this.container.style.width = `${this.containerWidth}px`;
+  }
+
+  #calculateSlideWidth() {
+    const maxSlideWidth =
+      (this.containerWidth - this.gap * (this.visibleSlides - 1)) /
+      this.visibleSlides;
+
     this.slides.forEach((item) => {
-      item.style.width = this.width + "px";
+      item.style.maxWidth = `${maxSlideWidth}px`;
+    });
+
+    this.slideWidths = Array.from(this.slides).map((slide) => {
+      return Math.min(slide.getBoundingClientRect().width, maxSlideWidth);
     });
   }
 
-  rollSlider() {
-    this.wrapper.style.transform = `translateX(-${this.count * this.width}px)`;
+  #updateWrapperWidth() {
+    const totalWidth =
+      this.slideWidths.reduce((sum, width) => sum + width, 0) +
+      this.gap * (this.slides.length - 1);
+    this.wrapper.style.width = `${totalWidth}px`;
+  }
+
+  #applyTransform() {
+    let offset = 0;
+    for (let i = 0; i < this.currentPosition; i++) {
+      offset += this.slideWidths[i] + this.gap;
+    }
+
+    this.wrapper.style.transform = `translateX(-${offset}px)`;
   }
 
   goNextSlide() {
-    this.count++;
+    const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
 
-    if (this.count >= this.slides.length) {
-      this.count = 0;
+    if (this.currentPosition >= maxPosition) {
+      this.currentPosition = 0;
+    } else {
+      this.currentPosition++;
     }
 
-    this.rollSlider();
+    this.#applyTransform();
   }
 
   goPrevSlide() {
-    this.count--;
+    const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
 
-    if (this.count < 0) {
-      this.count = this.slides.length - 1;
+    if (this.currentPosition <= 0) {
+      this.currentPosition = maxPosition;
+    } else {
+      this.currentPosition--;
     }
 
-    this.rollSlider();
+    this.#applyTransform();
   }
 
   #bindEvents() {
