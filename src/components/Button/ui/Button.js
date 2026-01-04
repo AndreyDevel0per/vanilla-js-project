@@ -31,9 +31,9 @@ export const Button = ({
       </a>
     `
     : `
-      <button class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
-        <span class="${getCN(baseClass, "label")}">${text}</span>
-        ${icon && `<span class="${getCN(baseClass, "icon")}">${icon()}</span>`}
+      <button class="${getCN(baseClass, "", extraClasses, utilClasses)}" data-js-button ${getGeneratedAttrs(extraAttrs)}>
+        <span class="${getCN(baseClass, "label", extraClasses)}">${text}</span>
+        ${icon && `<span class="${getCN(baseClass, "icon")}" data-js-button-icon>${icon()}</span> `}
       </button>
     `;
 };
