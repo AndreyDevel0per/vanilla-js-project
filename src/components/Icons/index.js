@@ -1,5 +1,6 @@
 import { IconArrowDown } from "./ui/IconArrowDown";
 import { IconLogo } from "./ui/IconLogo";
+import { IconArrowClose } from "./ui/IconArrowClose";
 import { IconHeaderFavorite } from "./ui/IconHeaderFavorite";
 import { IconHeaderCart } from "./ui/IconHeaderCart";
 import { IconHeaderProfile } from "./ui/IconHeaderProfile"
@@ -14,4 +15,5 @@ import { IconArrowLeft } from "./ui/IconArrowLeft";
 import { IconArrowRight } from "./ui/IconArrowRight";
 import { IconFavorite } from "./ui/IconFavorite"
 
+export { IconArrowDown, IconLogo, IconArrowClose };
 export { IconArrowDown, IconLogo, IconHeaderFavorite, IconHeaderCart, IconHeaderProfile, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming, IconLoop, IconArrowLeft, IconArrowRight, IconFavorite };

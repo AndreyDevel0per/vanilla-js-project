@@ -1,4 +1,5 @@
 .button {
+  position: relative;
   color: var(--colorWhite);
   background-color: var(--colorBlack);
   padding-inline: 8rem;
@@ -23,11 +24,24 @@
       font-size: 1.5rem;
       line-height: 2rem;
     }
+
+    &--isBorderBottom {
+      font-size: 2.25rem;
+    }
   }
 
   &__icon {
     display: flex;
     align-items: center;
+
+    &--isActive {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      right: 0;
+    }
   }
 
   &--isLight {
@@ -55,7 +69,7 @@
   &--isIcon {
     padding: 0;
     background-color: var(--colorWhite);
-    
+
 
     &:hover {
       background-color: var(--colorCadeyGray);
@@ -65,7 +79,7 @@
     &:active {
       transform: scale(0.95);
     }
-  
+
     &.button {
       gap: 0;
     }
@@ -76,7 +90,7 @@
     border-radius: 8px;
     transition-duration: 0.2s;
   }
-  
+
 
   &--isGrayDark {
     color: var(--colorWhite);
@@ -97,9 +111,19 @@
   }
 
   @media (max-width: 1280px) {
-    
+
     &--cardButton {
       padding: 1.5rem 5rem;
     }
+  }
+
+  &--isBorderBottom {
+    width: 32rem;
+    padding-inline: 0;
+    justify-content: space-between;
+    color: var(--colorBlack);
+    background-color: var(--colorWhite);
+    border-bottom: 0.5px solid var(--colorSilver);
+    border-radius: 0;
   }
 }
