@@ -1,6 +1,15 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
-import { IconArrowLeft, IconArrowRight, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming } from "../../Icons";
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconPhones,
+  IconSmartWatches,
+  IconCameras,
+  IconHeadphones,
+  IconComputers,
+  IconGaming,
+} from "../../Icons";
 import { CategoryCard } from "../../../components/CategoryCard";
 
 /**
@@ -17,24 +26,27 @@ export const Slider = ({
   utilClasses = [],
   extraAttrs = [],
 } = {}) => {
-    const categories = [
+  const categories = [
     { name: "Phones", icon: IconPhones },
     { name: "Smart Watches", icon: IconSmartWatches },
     { name: "Cameras", icon: IconCameras },
     { name: "Headphones", icon: IconHeadphones },
     { name: "Computers", icon: IconComputers },
     { name: "Gaming", icon: IconGaming },
-    
+
     { name: "Phones", icon: IconPhones },
     { name: "Smart Watches", icon: IconSmartWatches },
     { name: "Cameras", icon: IconCameras },
   ];
 
-  const cardsHTML = categories.map(category => 
-    `<li class="${getCN(baseClass, "item")}" data-js-slider-slide>
+  const cardsHTML = categories
+    .map(
+      (category) =>
+        `<li class="${getCN(baseClass, "item")}" data-js-slider-slide>
       ${CategoryCard({ categoryName: category.name, icon: category.icon })}
     </li>`
-  ).join('');
+    )
+    .join("");
 
   return `
     <div class="${getCN(baseClass, "", extraClasses, ["containerLarge"])}" data-js-slider ${getGeneratedAttrs(extraAttrs)}>

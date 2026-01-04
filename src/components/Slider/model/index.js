@@ -55,23 +55,23 @@ export class SliderModel {
   }
 
   #calculateSlideWidth() {
-    const maxSlideWidth = (this.containerWidth - (this.gap * (this.visibleSlides - 1))) / this.visibleSlides;
-    
+    const maxSlideWidth =
+      (this.containerWidth - this.gap * (this.visibleSlides - 1)) /
+      this.visibleSlides;
+
     this.slides.forEach((item) => {
       item.style.maxWidth = `${maxSlideWidth}px`;
     });
 
-    this.slideWidths = Array.from(this.slides).map(slide => {
-      return Math.min(
-        slide.getBoundingClientRect().width,
-        maxSlideWidth
-      );
+    this.slideWidths = Array.from(this.slides).map((slide) => {
+      return Math.min(slide.getBoundingClientRect().width, maxSlideWidth);
     });
   }
 
   #updateWrapperWidth() {
-    const totalWidth = this.slideWidths.reduce((sum, width) => sum + width, 0) + 
-                      (this.gap * (this.slides.length - 1));
+    const totalWidth =
+      this.slideWidths.reduce((sum, width) => sum + width, 0) +
+      this.gap * (this.slides.length - 1);
     this.wrapper.style.width = `${totalWidth}px`;
   }
 
@@ -80,31 +80,31 @@ export class SliderModel {
     for (let i = 0; i < this.currentPosition; i++) {
       offset += this.slideWidths[i] + this.gap;
     }
-    
+
     this.wrapper.style.transform = `translateX(-${offset}px)`;
   }
 
   goNextSlide() {
     const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
-    
+
     if (this.currentPosition >= maxPosition) {
       this.currentPosition = 0;
     } else {
       this.currentPosition++;
     }
-    
+
     this.#applyTransform();
   }
 
   goPrevSlide() {
     const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
-    
+
     if (this.currentPosition <= 0) {
       this.currentPosition = maxPosition;
     } else {
       this.currentPosition--;
     }
-    
+
     this.#applyTransform();
   }
 

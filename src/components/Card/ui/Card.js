@@ -13,7 +13,7 @@ import { IconFavorite } from "../../Icons";
  * @param {Number} price Цена товара в долларах
  * @return {String} HTML разметка карты товара
  */
-export const Card= ({
+export const Card = ({
   baseClass = "card",
   extraClasses = [],
   utilClasses = [],
@@ -22,7 +22,7 @@ export const Card= ({
   description = "",
   price = 0,
 } = {}) => {
-    return`
+  return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "favoriteField")}">
             ${Button({ type: "link", text: "", extraClasses: ["isIcon", "isFavorite"], icon: IconFavorite })}
@@ -36,5 +36,5 @@ export const Card= ({
             ${Button({ text: "Buy Now", extraClasses: ["cardButton"] })}
         </div>
     </div>
-    `
-}
+    `;
+};

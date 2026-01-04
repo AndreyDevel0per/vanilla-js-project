@@ -12,16 +12,16 @@ import { Button } from "../../Button";
  * @param {String} description Описания товара
  * @return {String} HTML разметка подробной карты товара
  */
-export const BigCard= ({
+export const BigCard = ({
   baseClass = "bigCard",
   extraClasses = [],
   utilClasses = [],
   extraAttrs = [],
   imagePath = "",
-  title= "",
+  title = "",
   description = "",
 }) => {
-    return`
+  return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "imgWrapper")}">
             <img src="${imagePath}" class="${getCN(baseClass, "image")}">
@@ -29,8 +29,8 @@ export const BigCard= ({
         <div class="${getCN(baseClass, "descriptionWrapper")}">
             <span class="${getCN(baseClass, "title", extraClasses)}">${title}</span>
             <span class="${getCN(baseClass, "description")}">${description}</span>
-            ${Button({  text: "Shop Now", extraClasses: [...extraClasses, "isLight"] })}
+            ${Button({ text: "Shop Now", extraClasses: [...extraClasses, "isLight"] })}
         </div>
     </div>
-    `
-}
+    `;
+};

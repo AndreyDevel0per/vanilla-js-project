@@ -9,24 +9,26 @@ export class BurgerButtonModel {
   };
 
   constructor() {
-    this.instance = document.querySelector(BurgerButtonModel.selectors.instance);
+    this.instance = document.querySelector(
+      BurgerButtonModel.selectors.instance
+    );
     if (this.instance) {
       this.list = this.instance.querySelector(BurgerButtonModel.selectors.list);
-      
+
       this.#bindEvents();
     }
   }
 
   showList() {
-    this.list.classList.toggle(BurgerButtonModel.classes.activeList)
-    console.log( this.list.classList)
+    this.list.classList.toggle(BurgerButtonModel.classes.activeList);
+    console.log(this.list.classList);
   }
 
   #bindEvents() {
     if (this.instance) {
       this.instance.addEventListener("click", () => {
         this.showList();
-      })
+      });
     }
-  } 
+  }
 }

@@ -39,6 +39,6 @@ export const BurgerButton = ({
         </li>
       </ul>
     </nav>
-  </div>
-  `
+  </div> 
+  `;
 };

@@ -11,7 +11,7 @@ import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
  * @param {String} categoryName Наименование категории капрточки
  * @return {String} HTML разметка карты-категории товара
  */
-export const CategoryCard= ({
+export const CategoryCard = ({
   baseClass = "categoryCard",
   extraClasses = [],
   utilClasses = [],
@@ -19,12 +19,12 @@ export const CategoryCard= ({
   icon = "",
   categoryName = "",
 } = {}) => {
-    return`
+  return ` 
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "productWrapper")}">
             ${categoryName && `<span class="${getCN(baseClass, "icon")}">${icon()}</span>`}
             ${categoryName && `<span class="${getCN(baseClass, "name")}">${categoryName}</span>`}
         </div>
     </div>
-    `
-}
+    `;
+};

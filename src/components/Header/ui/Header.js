@@ -1,6 +1,12 @@
 import { getCN } from "../../../lib/utils/getCN";
 import { getGeneratedAttrs } from "../../../lib/utils/getGeneratedAttrs";
-import { IconHeaderFavorite, IconHeaderProfile, IconHeaderCart, IconLogo, IconLoop } from "../../Icons";
+import {
+  IconHeaderFavorite,
+  IconHeaderProfile,
+  IconHeaderCart,
+  IconLogo,
+  IconLoop,
+} from "../../Icons";
 import { Button } from "../../Button";
 import { SearchInput } from "../../SearchInput";
 import { BurgerButton } from "../../BurgerButton";

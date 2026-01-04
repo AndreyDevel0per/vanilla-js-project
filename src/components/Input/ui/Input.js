@@ -12,16 +12,17 @@ import { Button } from "../../Button";
  * @param {String} placeholder Содежимое плейсхолдера
  * @return {String} HTML разметка интупа
  */
+//TODO Убрать wrapper and includes
 export const Input = ({
   baseClass = "input",
   extraClasses = [],
   utilClasses = [],
   extraAttrs = [],
-  type = 'text',
-  placeholder = '',
+  type = "text",
+  placeholder = "",
 } = {}) => {
   return extraClasses.includes("withButton")
-  ? `
+    ? `
   <div class="${getCN(baseClass, "wrapper")}">
     <input type="${type}" placeholder="${placeholder}" class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
     <span class="${getCN(baseClass, "buttonWrapper")}">
@@ -29,10 +30,9 @@ export const Input = ({
     </span>
   </div>
   `
-
-  : `
+    : `
   <div class="${getCN(baseClass, "wrapper", utilClasses)}">
     <input type="${type}" placeholder="${placeholder}" class="${getCN(baseClass, "", utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
   </div>
-  `
+  `;
 };
