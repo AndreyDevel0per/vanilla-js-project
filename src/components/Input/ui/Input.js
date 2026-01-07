@@ -8,20 +8,22 @@ import { Button } from "../../Button";
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
  * @param {Array<String>} extraAttrs Массив с дополнительными атрибутами
+ * @param {Boolean} isWithButton Есть ли кнопка apply
  * @param {String} type Тип интупа
  * @param {String} placeholder Содежимое плейсхолдера
  * @return {String} HTML разметка интупа
  */
-//TODO Убрать wrapper and includes
+//TODO Убрать wrapper ???
 export const Input = ({
   baseClass = "input",
   extraClasses = [],
   utilClasses = [],
   extraAttrs = [],
+  isWithButton = false,
   type = "text",
   placeholder = "",
 } = {}) => {
-  return extraClasses.includes("withButton")
+  return isWithButton
     ? `
   <div class="${getCN(baseClass, "wrapper")}">
     <input type="${type}" placeholder="${placeholder}" class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>

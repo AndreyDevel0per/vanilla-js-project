@@ -17,6 +17,9 @@ new Router({
 });
 
 //TODO Нужно подумать как инициализировать модели. Сейчас это работает не правильно при смене страниц
-new SliderModel();
+new SliderModel({
+  visibleSlides: 6,
+  containerWidth: 1120
+});
 new TabMenuModel();
 new BurgerButtonModel();
