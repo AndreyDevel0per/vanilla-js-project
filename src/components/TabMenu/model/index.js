@@ -21,16 +21,16 @@ export class TabMenuModel {
     }
   }
 
-  goNextTab(link, index) {
-    this.links.forEach((l) =>
+  goToTab(link, index) {
+    this.links?.forEach((l) =>
       l.classList.remove(TabMenuModel.classes.activeLink)
     );
-    this.tabs.forEach((t) =>
+    this.tabs?.forEach((t) =>
       t.classList.remove(TabMenuModel.classes.activeTab)
     );
 
-    link.classList.add(TabMenuModel.classes.activeLink);
-    this.tabs[index].classList.add(TabMenuModel.classes.activeTab);
+    link?.classList.add(TabMenuModel.classes.activeLink);
+    this.tabs[index]?.classList.add(TabMenuModel.classes.activeTab);
   }
 
   #bindEvents() {
@@ -38,7 +38,7 @@ export class TabMenuModel {
       this.links.forEach((link, index) => {
         link.addEventListener("click", (e) => {
           e.preventDefault();
-          this.goNextTab(link, index);
+          this.goToTab(link, index);
         });
       });
     }
