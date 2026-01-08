@@ -3,6 +3,7 @@ import { Card } from "../components/Card";
 import { Header } from "../components/Header";
 import { Slider } from "../components/Slider";
 import { TabMenu } from "../components/TabMenu";
+import { IconArrowLeft, IconArrowRight } from "../components/Icons";
 
 export const Home = () => {
   const bigCards = [
@@ -76,8 +77,15 @@ export const Home = () => {
   return `
       <div>
         <div>
-          ${Header()}
+          ${Header({})}
         </div>
+          <div class="sliderNavigation">
+            <span div class="sliderName">Browse By Category</span>
+            <div class="sliderButtons")}">
+              <button class="sliderNavigationItem" data-js-navigation-prev>${IconArrowLeft()}</button>
+              <button class="sliderNavigationItem" data-js-navigation-next>${IconArrowRight()}</button>
+            </div>
+          </div>
         <div>
           ${Slider()}
         </div>

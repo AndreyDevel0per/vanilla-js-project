@@ -10,6 +10,8 @@ export class SliderModel {
 
   constructor(options = {}) {
     this.instance = document.querySelector(SliderModel.selectors.instance);
+    this.buttonPrev = document.querySelector(SliderModel.selectors.buttonPrev);
+    this.buttonNext = document.querySelector(SliderModel.selectors.buttonNext);
 
     this.config = {
       visibleSlides: options.visibleSlides || 6,
@@ -23,12 +25,6 @@ export class SliderModel {
       );
       this.wrapper = this.instance.querySelector(SliderModel.selectors.wrapper);
       this.slides = this.instance.querySelectorAll(SliderModel.selectors.slide);
-      this.buttonPrev = this.instance.querySelector(
-        SliderModel.selectors.buttonPrev
-      );
-      this.buttonNext = this.instance.querySelector(
-        SliderModel.selectors.buttonNext
-      );
 
       this.currentPosition = 0;
       this.containerWidth = this.config.containerWidth;
