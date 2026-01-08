@@ -19,14 +19,17 @@ export const SaleBanner = ({
   return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" ${getGeneratedAttrs(extraAttrs)}>
         <div class="${getCN(baseClass, "imgWrapper")}">
-            <img src="../../../assets/images/saleBanner.jpg" alt="/" class="${getCN(baseClass, "image")}"></img>
+          <img src="../../../assets/images/saleBanner.jpg" alt="/" class="${getCN(baseClass, "image")}"></img>
+          <img src="../../../assets/images/saleBannerMobile.jpg" alt="/" class="${getCN(baseClass, "imageMobile")}"></img>
         </div>
         <div class="${getCN(baseClass, "content")}">
-            <div class="${getCN(baseClass, "contentWrapper")}">
-                <h1 class="${getCN(baseClass, "title")}">Big Summer <span class="${getCN(baseClass, "title", ["medium"])}">Sale</span></h1>
-                <span class="${getCN(baseClass, "description")}">Commodo fames vitae vitae leo mauris in. Eu consequat.</span>
-            </div>
-            ${Button({  text: "Shop Now", extraClasses: ["isBackBlack"] })}
+          <div class="${getCN(baseClass, "contentWrapper")}">
+            <h1 class="${getCN(baseClass, "title")}">Big Summer 
+              <span class="${getCN(baseClass, "titleMedium")}">Sale</span>
+            </h1>
+            <span class="${getCN(baseClass, "description")}">Commodo fames vitae vitae leo mauris in. Eu consequat.</span>
+          </div>
+          ${Button({  text: "Shop Now", extraClasses: ["isBackBlack"] })}
         </div>
     </div>
   `;
