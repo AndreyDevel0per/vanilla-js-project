@@ -3,6 +3,7 @@ import { Card } from "../components/Card";
 import { Header } from "../components/Header";
 import { Slider } from "../components/Slider";
 import { TabMenu } from "../components/TabMenu";
+import { IconArrowLeft, IconArrowRight } from "../components/Icons";
 
 export const Home = () => {
   const bigCards = [
@@ -78,11 +79,90 @@ export const Home = () => {
         <div>
           ${Header({})}
         </div>
+          <div class="sliderNavigation">
+            <span div class="sliderName">Browse By Category</span>
+            <div class="sliderButtons")}">
+              <button class="sliderNavigationItem" data-js-navigation-prev>${IconArrowLeft()}</button>
+              <button class="sliderNavigationItem" data-js-navigation-next>${IconArrowRight()}</button>
+            </div>
+          </div>
         <div>
           ${Slider()}
         </div>
         <div>
-          ${TabMenu()}
+          ${TabMenu({ links: ["New Arrival", "Bestseller Featured", "Products"], content: [
+              [
+                {
+                  name: "Iphone14pro",
+                  description: "Apple iPhone 14 Pro Max 128GB Deep Purple",
+                  price: 900,
+                },
+                {
+                  name: "camera6k",
+                  description: "Blackmagic Pocket Cinema Camera 6k",
+                  price: 2535,
+                },
+                {
+                  name: "appleWatch",
+                  description: "Apple Watch Series 9 GPS 41mm Starlight Aluminium ",
+                  price: 399,
+                },
+                {
+                  name: "podsMax",
+                  description: "AirPods Max Silver Starlight Aluminium ",
+                  price: 549,
+                },
+                {
+                  name: "galaxyWatch6",
+                  description: "Samsung Galaxy Watch6 Classic 47mm Black",
+                  price: 369,
+                },
+                {
+                  name: "ZFold5",
+                  description: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
+                  price: 1799,
+                },
+                {
+                  name: "budsFE",
+                  description: "Galaxy Buds FE <br> Graphite",
+                  price: 99.99,
+                },
+                {
+                  name: "IPad9",
+                  description: 'Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021',
+                  price: 398,
+                },
+              ],
+              [
+                {
+                  name: "Iphone14pro",
+                  description: "Apple iPhone 14 Pro Max 128GB Deep Purple",
+                  price: 900,
+                },
+                {
+                  name: "camera6k",
+                  description: "Blackmagic Pocket Cinema Camera 6k",
+                  price: 2535,
+                },
+              ],
+              [
+                {
+                  name: "ZFold5",
+                  description: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
+                  price: 1799,
+                },
+                {
+                  name: "budsFE",
+                  description: "Galaxy Buds FE <br> Graphite",
+                  price: 99.99,
+                },
+                {
+                  name: "IPad9",
+                  description: 'Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021',
+                  price: 398,
+                },
+              ],
+          ]})}
         </div>
       </div>
       <div class="bigCards">

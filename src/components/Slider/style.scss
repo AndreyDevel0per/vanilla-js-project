@@ -2,6 +2,7 @@
   display: flex;  
   flex-direction: column;
   align-items: start;
+  padding-bottom: 10rem;
     
   &__container {
     max-width: 80%;
@@ -23,35 +24,7 @@
     gap: 4rem;
   }
 
-  &__navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 2rem;
-  }
-
-  &__name {
-    font-size: 3rem;
-    line-height: 1.33;
-    letter-spacing: 0.03rem;
-  }
-
-  &__buttons {
-    display: flex;
-    gap: 2rem;
-  }
-
-  &__navigationItem {
-    width: 4rem;
-    height: 4rem;
-    object-fit: cover;
-  }
-
   @media (max-width: 767px) {
-
-    &__name {
-      font-size: 2rem;
-    }
+    padding-bottom: 8rem;
   }
 }

@@ -19,15 +19,14 @@ export class BurgerButtonModel {
     }
   }
 
-  showList() {
+  toggleList() {
     this.list.classList.toggle(BurgerButtonModel.classes.activeList);
-    console.log(this.list.classList);
   }
 
   #bindEvents() {
     if (this.instance) {
       this.instance.addEventListener("click", () => {
-        this.showList();
+        this.toggleList();
       });
     }
   }

@@ -49,14 +49,7 @@ export const Slider = ({
     .join("");
 
   return `
-    <div class="${getCN(baseClass, "", extraClasses, ["containerLarge"])}" data-js-slider ${getGeneratedAttrs(extraAttrs)}>
-      <div class="${getCN(baseClass, "navigation")}">
-        <span div class="${getCN(baseClass, "name")}">Browse By Category</span>
-        <div class="${getCN(baseClass, "buttons")}">
-          <button class="${getCN(baseClass, "navigationItem", ["prev"])}" data-js-navigation-prev>${IconArrowLeft()}</button>
-          <button class="${getCN(baseClass, "navigationItem", ["next"])}" data-js-navigation-next>${IconArrowRight()}</button>
-        </div>
-      </div>
+    <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" data-js-slider ${getGeneratedAttrs(extraAttrs)}>
       <div class="${getCN(baseClass, "container")}" data-js-slider-container>
         <ul class="${getCN(baseClass, "wrapper")}" data-js-slider-wrapper>
           ${cardsHTML}

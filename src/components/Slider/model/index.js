@@ -8,8 +8,16 @@ export class SliderModel {
     buttonNext: "[data-js-navigation-next]",
   };
 
-  constructor() {
+  constructor(options = {}) {
     this.instance = document.querySelector(SliderModel.selectors.instance);
+    this.buttonPrev = document.querySelector(SliderModel.selectors.buttonPrev);
+    this.buttonNext = document.querySelector(SliderModel.selectors.buttonNext);
+
+    this.config = {
+      visibleSlides: options.visibleSlides || 6,
+      containerWidth: options.containerWidth || 1120,
+      ...options
+    };
 
     if (this.instance) {
       this.container = this.instance.querySelector(
@@ -17,16 +25,10 @@ export class SliderModel {
       );
       this.wrapper = this.instance.querySelector(SliderModel.selectors.wrapper);
       this.slides = this.instance.querySelectorAll(SliderModel.selectors.slide);
-      this.buttonPrev = this.instance.querySelector(
-        SliderModel.selectors.buttonPrev
-      );
-      this.buttonNext = this.instance.querySelector(
-        SliderModel.selectors.buttonNext
-      );
 
       this.currentPosition = 0;
-      this.containerWidth = 1120;
-      this.visibleSlides = 6;
+      this.containerWidth = this.config.containerWidth;
+      this.visibleSlides = this.config.visibleSlides;
       this.gap = parseInt(window.getComputedStyle(this.wrapper).gap) || 0;
       this.slideWidths = [];
 
@@ -50,21 +52,23 @@ export class SliderModel {
   }
 
   #calculateContainerWidth() {
-    // this.containerWidth = this.container.offsetWidth;
     this.container.style.width = `${this.containerWidth}px`;
   }
 
   #calculateSlideWidth() {
-    const maxSlideWidth =
-      (this.containerWidth - this.gap * (this.visibleSlides - 1)) /
-      this.visibleSlides;
+    // Ограничиваем visibleSlides количеством слайдов, если оно больше
+    const actualVisibleSlides = Math.min(this.visibleSlides, this.slides.length);
+    
+    // Правильно рассчитываем максимальную ширину слайда
+    const maxSlideWidth = this.containerWidth / actualVisibleSlides - this.gap * (actualVisibleSlides - 1) / actualVisibleSlides;
 
     this.slides.forEach((item) => {
       item.style.maxWidth = `${maxSlideWidth}px`;
+      item.style.flex = `0 0 ${maxSlideWidth}px`; // Добавляем flex-basis
     });
 
-    this.slideWidths = Array.from(this.slides).map((slide) => {
-      return Math.min(slide.getBoundingClientRect().width, maxSlideWidth);
+    this.slideWidths = Array.from(this.slides).map(() => {
+      return maxSlideWidth; // Используем одинаковую ширину для всех слайдов
     });
   }
 
@@ -85,7 +89,11 @@ export class SliderModel {
   }
 
   goNextSlide() {
-    const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
+    const maxPosition = this.#getMaxPosition();
+    
+    if (maxPosition <= 0) {
+      return;
+    }
 
     if (this.currentPosition >= maxPosition) {
       this.currentPosition = 0;
@@ -97,7 +105,11 @@ export class SliderModel {
   }
 
   goPrevSlide() {
-    const maxPosition = Math.max(0, this.slides.length - this.visibleSlides);
+    const maxPosition = this.#getMaxPosition();
+    
+    if (maxPosition <= 0) {
+      return;
+    }
 
     if (this.currentPosition <= 0) {
       this.currentPosition = maxPosition;
@@ -106,6 +118,17 @@ export class SliderModel {
     }
 
     this.#applyTransform();
+  }
+
+  #getMaxPosition() {
+    // Используем Math.min чтобы visibleSlides не превышало количество слайдов
+    const actualVisibleSlides = Math.min(this.visibleSlides, this.slides.length);
+    
+    if (this.slides.length <= actualVisibleSlides) {
+      return 0;
+    }
+
+    return this.slides.length - actualVisibleSlides;
   }
 
   #bindEvents() {
