@@ -8,28 +8,42 @@ export class DropdownModel {
     label: "[data-js-dropdown-label]",
   };
 
-  static classses = {
+  static classes = {
     isActiceIcon: "button__icon--isActive",
     isActiveWrapper: "dropdown__wrapper--isActive",
     visuallyHidden: "visuallyHidden",
   };
 
   constructor () {
-    this.instance = document.querySelector(DropdownModel.selectors.instance);
+    this.instance = document.querySelectorAll(DropdownModel.selectors.instance);
 
     if (this.instance) {
-      this.buttons = this.instance.querySelectorAll(DropdownModel.selectors.button);
-      this.buttonIcons = this.instance.querySelectorAll(DropdownModel.selectors.buttonIcon);
-      this.wrappers = this.instance.querySelectorAll(DropdownModel.selectors.wrapper);
-      this.inputs = this.instance.querySelectorAll(DropdownModel.selectors.input);
-
-      this.#bindEvents();
+      this.#initAll();
     }
   }
 
-  showFeatures(index) {
-    this.buttonIcons[index].classList.toggle(DropdownModel.classses.isActiceIcon);
-    this.wrappers[index].classList.toggle(DropdownModel.classses.isActiveWrapper);
+  #initAll() {
+    document.querySelectorAll(DropdownModel.selectors.instance).forEach(element => {
+      new DropdownInstance(element);
+    });
+  }
+}
+
+
+class DropdownInstance {
+  constructor(instanceElement) {
+    this.instance = instanceElement;
+    this.button = this.instance.querySelector(DropdownModel.selectors.button);
+    this.buttonIcon = this.instance.querySelector(DropdownModel.selectors.buttonIcon);
+    this.wrapper = this.instance.querySelector(DropdownModel.selectors.wrapper);
+    this.input = this.instance.querySelector(DropdownModel.selectors.input);
+
+    this.#bindEvents();
+  }
+  
+  showFeatures() {
+    this.buttonIcon.classList.toggle(DropdownModel.classes.isActiceIcon);
+    this.wrapper.classList.toggle(DropdownModel.classes.isActiveWrapper);
   }
 
   showLabels(event) {
@@ -41,27 +55,23 @@ export class DropdownModel {
       const labelText = label.textContent.toLowerCase();
 
       if (labelText.includes(searchValue)) {
-        label.classList.remove(DropdownModel.classses.visuallyHidden);
+        label.classList.remove(DropdownModel.classes.visuallyHidden);
       } else {
-        label.classList.add(DropdownModel.classses.visuallyHidden);
+        label.classList.add(DropdownModel.classes.visuallyHidden);
       }
     })
   }
 
   #bindEvents() {
-    if (this.buttons) {
-      this.buttons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-          this.showFeatures(index);
-        })
+    if (this.button) {
+      this.button.addEventListener("click", () => {
+          this.showFeatures();
       })
     };
 
-    if (this.inputs) {
-      this.inputs.forEach(input => {
-        input.addEventListener("input", (event) => {
+    if (this.input) {
+      this.input.addEventListener("input", (event) => {
           this.showLabels(event);
-        })
       })
     };
   }
