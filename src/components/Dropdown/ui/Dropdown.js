@@ -9,6 +9,8 @@ import { IconArrowClose } from "../../Icons";
  * @param {Array<String>} extraClasses Массив с модификаторами
  * @param {Array<String>} utilClasses Массив с утилитарными классами
  * @param {Array<String>} extraAttrs Массив с дополнительными атрибутами
+ * @param {String} dropdownTitle Название drop дауна
+ * @param {Array<{Object<{name: string, value: number}>}>} dropdownOptions Массив объектов названий и количества
  * @return {String} HTML разметка dropdown
  */
 export const Dropdown = ({
@@ -16,47 +18,29 @@ export const Dropdown = ({
   extraClasses = [],
   utilClasses = [],
   extraAttrs = [],
+  dropdownTitle = "",
+  dropdownOptions = [],
 } = {}) => {
+  const options = dropdownOptions.map((item) => 
+    `
+      <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
+        <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
+        <span class="${getCN(baseClass, "text")}">${item.name}</span>
+        <span class="${getCN(baseClass, "quantity")}">${item.quantity}</span>
+      </label>
+    `).join("")
+
+    
+
   return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" data-js-dropdown ${getGeneratedAttrs(extraAttrs)}>
-      ${Button({ text: "Brand", extraClasses: ["isBorderBottom"], icon: IconArrowClose })}
+      ${dropdownTitle && Button({ text: dropdownTitle, extraClasses: ["isBorderBottom"], icon: IconArrowClose })}
       <div class="${getCN(baseClass, "wrapper")}" data-js-dropdown-wrapper>
-        <input type="text" placeholder="Search" class="${getCN(baseClass, "input")}" data-js-dropdown-input>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">Apple</span>
-          <span class="${getCN(baseClass, "quantity")}">110</span>
-        </label>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">Samsung</span>
-          <span class="${getCN(baseClass, "quantity")}">125</span>
-        </label>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">Xiaomi</span>
-          <span class="${getCN(baseClass, "quantity")}">68</span>
-        </label>
-      </div>
-
-      ${Button({ text: "Battery capacity", extraClasses: ["isBorderBottom"], icon: IconArrowClose })}
-      <div class="${getCN(baseClass, "wrapper")}" data-js-dropdown-wrapper>
-        <input type="text" placeholder="Search" class="${getCN(baseClass, "input")}" data-js-dropdown-input>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">3000-4000 мАч</span>
-          <span class="${getCN(baseClass, "quantity")}">70</span>
-        </label>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">4500-5000 мАч</span>
-          <span class="${getCN(baseClass, "quantity")}">112</span>
-        </label>
-        <label class="${getCN(baseClass, "label")}" data-js-dropdown-label>
-          <input type="checkbox" class="${getCN(baseClass, "checkbox")}">
-          <span class="${getCN(baseClass, "text")}">6000 мАч</span>
-          <span class="${getCN(baseClass, "quantity")}">61</span>
-        </label>
+        ${dropdownOptions.length > 0
+          ? `<input type="text" placeholder="Search" class="${getCN(baseClass, "input")}" data-js-dropdown-input>
+              ${options}`
+          : `<span class="${getCN(baseClass, "emptyMessage")}">There are no options to search</span>`
+        }
       </div>
     </div>
   `;

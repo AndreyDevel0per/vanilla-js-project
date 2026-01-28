@@ -4,6 +4,8 @@ import { Header } from "../components/Header";
 import { Slider } from "../components/Slider";
 import { TabMenu } from "../components/TabMenu";
 
+import { Dropdown } from "../components/Dropdown/ui/Dropdown";
+
 export const Home = () => {
   const bigCards = [
     {
