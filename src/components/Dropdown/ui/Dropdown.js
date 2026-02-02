@@ -30,8 +30,6 @@ export const Dropdown = ({
       </label>
     `).join("")
 
-    
-
   return `
     <div class="${getCN(baseClass, "", extraClasses, utilClasses)}" data-js-dropdown ${getGeneratedAttrs(extraAttrs)}>
       ${dropdownTitle && Button({ text: dropdownTitle, extraClasses: ["isBorderBottom"], icon: IconArrowClose })}

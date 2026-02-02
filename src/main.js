@@ -7,6 +7,7 @@ import { NotFound } from "./pages/notFound.js";
 import { SliderModel } from "./components/Slider/index.js";
 import { Components } from "./pages/Components.js";
 import { DropdownModel } from "./components/Dropdown/index.js";
+import { ShopModel } from "./components/Shop/model/index.js";
 
 new Router({
   [routes.home]: Home,
@@ -18,3 +19,4 @@ new Router({
 //TODO Нужно подумать как инициализировать модели. Сейчас это работает не правильно при смене страниц
 new SliderModel();
 new DropdownModel();
+new ShopModel();
