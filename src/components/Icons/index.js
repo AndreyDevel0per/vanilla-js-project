@@ -14,6 +14,9 @@ import { IconLoop } from "./ui/IconLoop"
 import { IconArrowLeft } from "./ui/IconArrowLeft";
 import { IconArrowRight } from "./ui/IconArrowRight";
 import { IconFavorite } from "./ui/IconFavorite"
+import { IconArrowPrev } from "./ui/IconArrowPrev";
+import { IconArrowNext } from "./ui/IconArrowNext";
 
+export { IconArrowDown, IconLogo, IconArrowClose, IconArrowPrev, IconArrowNext };
 export { IconArrowDown, IconLogo, IconArrowClose };
 export { IconArrowDown, IconLogo, IconHeaderFavorite, IconHeaderCart, IconHeaderProfile, IconPhones, IconSmartWatches, IconCameras, IconHeadphones, IconComputers, IconGaming, IconLoop, IconArrowLeft, IconArrowRight, IconFavorite };

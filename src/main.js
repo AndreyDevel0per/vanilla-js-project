@@ -9,6 +9,7 @@ import { TabMenuModel } from "./components/TabMenu/index.js";
 import { BurgerButtonModel } from "./components/BurgerButton/index.js";
 import { Components } from "./pages/Components.js";
 import { DropdownModel } from "./components/Dropdown/index.js";
+import { ShopModel } from "./components/Shop/model/index.js";
 
 new Router({
   [routes.home]: Home,
@@ -22,3 +23,4 @@ new SliderModel();
 new TabMenuModel();
 new BurgerButtonModel();
 new DropdownModel();
+new ShopModel();
