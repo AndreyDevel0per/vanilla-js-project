@@ -1,0 +1,42 @@
+.shop {
+  padding-bottom: 6rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  &__paginationButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: 0.06rem;
+    border-radius: 5px;
+
+    &--isActive {
+      color: var(--colorWhite);
+      background-color: var(--colorBlack);
+    }
+
+    &:hover {
+      opacity: 1;
+      transition-duration: 0.2s;
+    }
+  }
+
+}
