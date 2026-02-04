@@ -1,0 +1,19 @@
+.map {
+  width: 100vw;
+  height: 80rem;
+
+  &__address {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--colorBlack);
+  }
+
+  &__link {
+    color: var(--colorGrayDark);
+
+    &:hover {
+      opacity: 0.6;
+      transition-duration: 0.2s;
+    }
+  }
+}

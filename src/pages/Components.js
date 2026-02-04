@@ -1,6 +1,7 @@
 import { Button } from "../components/Button";
 import { IconArrowDown } from "../components/Icons";
 import { Slider } from "../components/Slider";
+import { Map } from "../components/Map";
 import { Section } from "../components/Section/index.js";
 
 export const Components = () => {
@@ -16,9 +17,9 @@ export const Components = () => {
             </div>`,
         })}
         ${Section({
-          title: "Slider",
+          title: "Map",
           children: `
-            ${Slider()}`,
+            ${Map()}`,
         })}
       </main>
     `;

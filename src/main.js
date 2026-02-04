@@ -8,6 +8,7 @@ import { SliderModel } from "./components/Slider/index.js";
 import { TabMenuModel } from "./components/TabMenu/index.js";
 import { BurgerButtonModel } from "./components/BurgerButton/index.js";
 import { Components } from "./pages/Components.js";
+import { MapModel } from "./components/Map/model/index.js";
 
 new Router({
   [routes.home]: Home,
@@ -20,3 +21,4 @@ new Router({
 new SliderModel();
 new TabMenuModel();
 new BurgerButtonModel();
+new MapModel();
